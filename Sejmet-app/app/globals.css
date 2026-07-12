@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+body {
+  background-image: radial-gradient(circle at 1px 1px, rgba(244, 236, 216, 0.05) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+html.light body {
+  background-color: #FBF6EA;
+  background-image: radial-gradient(circle at 1px 1px, rgba(20, 22, 42, 0.06) 1px, transparent 0);
+}
+
+::selection {
+  background: rgba(201, 162, 75, 0.35);
+}
+
+/* Página manuscrita: el lienzo de escritura, elemento firma del diseño */
+.manuscript-page {
+  position: relative;
+  background: linear-gradient(180deg, #FBF3DE 0%, #F4ECD8 100%);
+  border: 1px solid rgba(201, 162, 75, 0.55);
+  box-shadow: 0 1px 0 rgba(201, 162, 75, 0.25) inset, 0 30px 60px -30px rgba(0, 0, 0, 0.6);
+}
+
+.manuscript-page::before,
+.manuscript-page::after {
+  content: "";
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border: 2px solid rgba(201, 162, 75, 0.65);
+  pointer-events: none;
+}
+
+.manuscript-page::before {
+  top: 10px;
+  right: 10px;
+  border-bottom: none;
+  border-left: none;
+}
+
+.manuscript-page::after {
+  bottom: 10px;
+  left: 10px;
+  border-top: none;
+  border-right: none;
+}
+
+.key-tile {
+  transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
+}
+
+.key-tile:active {
+  transform: translateY(1px) scale(0.97);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .key-tile,
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid #C9A24B;
+  outline-offset: 2px;
+}
